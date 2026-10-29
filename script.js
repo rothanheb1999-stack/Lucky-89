@@ -45,20 +45,42 @@ $('#co').onchange=e=>{S.co=e.target.value;sv();B.items=[];go()};
 
 S.th='light';document.documentElement.dataset.theme='light';
 function go(){brand();if(!me().n){S.me=null;return showLogin()}if(!ok(view))view='bet';document.querySelectorAll('.nv').forEach(b=>{b.classList.toggle('on',b.dataset.v===view);b.title=b.textContent;if(!b.firstChild.textContent)b.firstChild.textContent=''});
- $('#ttl').textContent=NAV.find(n=>n[0]===view)[1]+' · '+S.co;$('#tic').innerHTML=IC[view];({dash,bet,rep,res,rec,usr})[view]()}
+ $('#ttl').textContent=NAV.find(n=>n[0]===view)[1]+' · '+S.co;$('#tic').innerHTML=IC[view];document.body.dataset.v=view;({dash,bet,rep,res,rec,usr})[view]()}
 
 /* ---------- dashboard ---------- */
+
+/* ---------- DASHBOARD v7 : banner, icons, activity log ---------- */
+const IK={in:'<i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10l3-3 3 3"/></svg></i>',
+ out:'<i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 17V7M9 14l3 3 3-3"/></svg></i>',
+ net:'<i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></i>'};
+const LOGSEC='<div class="sec"><header><div><h2>Activity log</h2><p>Who did what · latest actions, updates live</p></div></header><div class="alog" id="alg"></div></div>';
+function DHB(){const B=[['08','#e63950'],['09','#ffc857'],['18','#22c7d6'],['28','#8b5cf6'],['68','#ff8a3d'],['89','#4ade80']];
+ return '<div class="dh"><div class="dhl"><small id="dh_d"></small><h2>Welcome back, <b id="dh_u"></b></h2><p>Lucky 89 · live lottery control room</p></div>'
+ +'<div class="dhc"><small>NEXT DRAW COUNTDOWN</small><b id="dh_c">--:--:--</b><span id="dh_n"></span></div>'
+ +'<div class="dhb" aria-hidden="true">'+B.map((x,i)=>'<i style="--c:'+x[1]+';--i:'+i+'"><b>'+x[0]+'</b></i>').join('')+'</div></div>'}
+function dhx(){const u=$('#dh_u');if(!u)return;u.textContent=S.us||'';const d=$('#dh_d');if(d)d.textContent=new Date().toLocaleDateString([],{weekday:'long',day:'numeric',month:'long',year:'numeric'});dhc()}
+function dhc(){const c=$('#dh_c');if(!c)return;const n=new Date(),T=today(),nx=TM.find(h=>!ended(h,T)),l=$('#dh_n');
+ if(!nx){c.textContent='--:--:--';if(l)l.textContent='All draws finished today · next '+TM[0]+' tomorrow';return}
+ const p=tmin(nx),tg=new Date(n.getFullYear(),n.getMonth(),n.getDate(),Math.floor(p/60),p%60,0),df=Math.max(0,Math.round((tg-n)/1000)),z=x=>String(x).padStart(2,'0');
+ c.textContent=z(Math.floor(df/3600))+':'+z(Math.floor(df%3600/60))+':'+z(df%60);if(l)l.textContent=nx+(S.cfg.cut?' · betting closes '+S.cfg.cut+' min before':'')}
+if(!window.DHT)window.DHT=setInterval(dhc,1000);
+function alog(){const l=$('#alg');if(!l)return;const L=(S.log||[]).slice(0,10),mn=Math.floor(Date.now()/60000),sig=mn+'|'+L.map(x=>x.ts+x.m).join('|');if(l.dataset.sig===sig)return;l.dataset.sig=sig;
+ const kd=m=>/cancel|cleared|delete/i.test(m)?['r','Cancelled']:/paid|received/i.test(m)?['g','Payment']:/signed in|signed out/i.test(m)?['t','Access']:/saved|ticket|result|bet/i.test(m)?['y','Ticket']:['n','Action'],
+ ag=ts=>{const d=Math.max(0,Math.round((Date.now()-ts)/1000));return d<60?'just now':d<3600?Math.floor(d/60)+' min ago':d<86400?Math.floor(d/3600)+' h ago':new Date(ts).toLocaleDateString([],{day:'numeric',month:'short'})},
+ hu=n=>{let h=0;String(n).split('').forEach(c=>h=(h*31+c.charCodeAt(0))%360);return h};
+ l.innerHTML=L.length?L.map(x=>{const k=kd(String(x.m));return '<div class="al"><span class="av" style="--h:'+hu(x.us)+'">'+esc(String(x.us||'?').charAt(0).toUpperCase())+'</span><div class="tx"><b>'+esc(x.us)+'</b><small>'+esc(x.m)+'</small></div><span class="tg '+k[0]+'">'+k[1]+'</span><time>'+ag(x.ts)+'</time></div>'}).join(''):'<div class="emp">No activity yet. Actions will show here.</div>'}
+
 function dash(){
  if(S.lk&&S.lk.t!==SEENLK){HM=S.lk.mk;HD=S.lk.dt;HT=null;SEENLK=S.lk.t}
- $('#v').innerHTML=`<div id="dp"><div class="bar0"><div><select id="rg" aria-label="Date range">${RNG.map(r=>`<option value="${r[0]}"${r[0]===F.rg?' selected':''}>${r[1]}</option>`).join('')}</select>${ok('bet')?'<button class="btn pri" data-go="bet">+ New bet</button>':''}${ok('rep')?'<button class="btn" data-go="rep">Reports</button>':''}</div><span class="live"><i></i>Live · <span id="lv"></span></span></div>
- <div class="mps"><div class="mp in" id="p_in"><h3>Money in<small>ប្រាក់កក់បានពីភ្ញៀវសរុប</small></h3><span class="v" id="v_in">៛0</span><div class="sub" id="s_in"></div><div class="rt"><i id="r_in"></i></div></div>
- <div class="mp out" id="p_out"><h3>Money out<small>ប្រាក់សងភ្ញៀវសរុប</small></h3><span class="v" id="v_out">៛0</span><div class="sub" id="s_out"></div><div class="rt"><i id="r_out"></i></div></div>
- <div class="mp net" id="p_net"><h3>Net profit<small>ទឹកប្រាក់សរុប</small></h3><span class="v" id="v_net">៛0</span><div class="sub">Money in − money out</div><div class="rt"><i id="r_net"></i></div></div></div>
+ $('#v').innerHTML=`<div id="dp">${DHB()}<div class="bar0"><div><select id="rg" aria-label="Date range">${RNG.map(r=>`<option value="${r[0]}"${r[0]===F.rg?' selected':''}>${r[1]}</option>`).join('')}</select>${ok('bet')?'<button class="btn pri" data-go="bet">+ New bet</button>':''}${ok('rep')?'<button class="btn" data-go="rep">Reports</button>':''}</div><span class="live"><i></i>Live · <span id="lv"></span></span></div>
+ <div class="mps"><div class="mp in" id="p_in">${IK.in}<h3>Money in<small>ប្រាក់កក់បានពីភ្ញៀវសរុប</small></h3><span class="v" id="v_in">៛0</span><div class="sub" id="s_in"></div><div class="rt"><i id="r_in"></i></div></div>
+ <div class="mp out" id="p_out">${IK.out}<h3>Money out<small>ប្រាក់សងភ្ញៀវសរុប</small></h3><span class="v" id="v_out">៛0</span><div class="sub" id="s_out"></div><div class="rt"><i id="r_out"></i></div></div>
+ <div class="mp net" id="p_net">${IK.net}<h3>Net profit<small>ទឹកប្រាក់សរុប</small></h3><span class="v" id="v_net">៛0</span><div class="sub">Money in − money out</div><div class="rt"><i id="r_net"></i></div></div></div>
  <div class="sts"><div class="stt"><small>Bettors · អ្នកភ្នាល់</small><b id="n_b">0</b></div><div class="stt o"><small>Waiting · រង់ចាំបើក</small><b id="n_o">0</b></div><div class="stt w"><small>Win · ឈ្នះ</small><b id="n_w">0</b></div><div class="stt l"><small>Lost · ចាញ់</small><b id="n_l">0</b></div><div class="stt"><small>Cancelled · បិទបញ្ជី</small><b id="n_c">0</b></div></div>
  <div class="sec"><header><div><h2>Hourly results</h2><p id="hs"></p></div><input type="date" id="hd" value="${HD}" aria-label="Result date"></header>
  <div class="mt" id="mt">${DM.map(m=>`<button data-m="${m}" class="${m===HM?'on':''}">${m}</button>`).join('')}</div>
  <div class="sp2" id="sp2">${TM.map((h,i)=>`<div style="--h:${HUE(i)}" data-i="${i}" title="${h}"><span>${h.replace(/^0/,'').replace(' AM',' AM').replace(' PM',' PM')}</span></div>`).join('')}</div><div class="hg2" id="hg2"></div></div>
- <div class="g2b"><div class="bx"><b>Bank balances</b><div id="bks" style="margin-top:6px"></div></div><div class="bx"><b>Sales by market</b>${DM.map((m,i)=>`<div class="mb2"><div><span>${m}</span><b id="ms${i}">៛0</b></div><div class="tr"><i id="mb${i}" style="--h:${HUE(i*4)}"></i></div></div>`).join('')}</div><div class="bx"><b>Money flow</b><div id="fd" style="margin-top:6px"></div></div></div></div>`;
+ <div class="g2b"><div class="bx"><b>Bank balances</b><div id="bks" style="margin-top:6px"></div></div><div class="bx"><b>Sales by market</b>${DM.map((m,i)=>`<div class="mb2"><div><span>${m}</span><b id="ms${i}">៛0</b></div><div class="tr"><i id="mb${i}" style="--h:${HUE(i*4)}"></i></div></div>`).join('')}</div><div class="bx"><b>Money flow</b><div id="fd" style="margin-top:6px"></div></div></div>${LOGSEC}</div>`;
  $('#rg').onchange=e=>{F.rg=e.target.value;live()};
  $('#hd').onchange=e=>{HD=e.target.value||today();HT=null;$('#hg2').innerHTML='';live()};
  $('#sp2').onclick=e=>{const d=e.target.closest('[data-i]');if(!d)return;const h=TM[+d.dataset.i];if(!S.res[rk(HM,HD,h)])return toast('No result for '+h+' yet');HT=h;$('#hg2').innerHTML='';live()};
@@ -99,7 +121,7 @@ function live(){if(!$('#dp'))return;const t=items().filter(x=>inR(x.dt,F.rg)),sa
  const N=String;tw('n_b','b',t.length,0,v=>N(Math.round(v)));tw('n_o','o',op.length,0,v=>N(Math.round(v)));tw('n_w','w',wi,0,v=>N(Math.round(v)));tw('n_l','l',lo,0,v=>N(Math.round(v)));tw('n_c','c',ca,0,v=>N(Math.round(v)));
  const mk=DM.map(m=>t.filter(x=>x.mk===m).reduce((a,x)=>a+x.amt,0)),mx=Math.max(1,...mk);mk.forEach((v,i)=>{tw('ms'+i,'m'+i,v);const b=$('#mb'+i);if(b)b.style.width=Math.max(v?2:0,v/mx*100)+'%'});
  const bs=BANKS.map(b=>[b,bal(b)]);$('#bks').innerHTML=bs.map(b=>'<div class="bk"><span>'+b[0]+'</span><span class="'+(b[1]<0?'neg':'')+'">'+fm(b[1])+'</span></div>').join('')+'<div class="bk"><span>Total</span><span>'+fm(bs.reduce((a,b)=>a+b[1],0))+'</span></div>';
- hours();feed();$('#lv').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
+ hours();feed();dhx();alog();$('#lv').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
 
 
 /* ---------- bet entry ---------- */

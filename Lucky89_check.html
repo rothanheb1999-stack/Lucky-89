@@ -729,6 +729,103 @@ body.ro .rc-grid{grid-template-columns:1fr}
 #lgn .lx h1{filter:drop-shadow(0 3px 10px rgba(0,0,0,.7)) drop-shadow(0 0 22px rgba(255,170,60,.25))}
 #lgn .lx h1 span:nth-last-child(-n+2){text-shadow:none!important}
 
+/* ======== DASHBOARD v7 : LOTTERY CONTROL ROOM ======== */
+body[data-v=dash] main{background:radial-gradient(1000px 520px at 8% -8%,rgba(34,199,214,.17),transparent 60%),radial-gradient(900px 520px at 100% 0,rgba(255,138,61,.15),transparent 55%),radial-gradient(700px 500px at 50% 110%,rgba(139,92,246,.12),transparent 60%),#050d15;background-attachment:local}
+body[data-v=dash] header{background:rgba(5,13,21,.84)!important;border-bottom:1px solid rgba(255,200,120,.22)!important;color:#eaf4f7}
+body[data-v=dash] header h2,body[data-v=dash] header #who{color:#f4fbfd}
+body[data-v=dash] header small,body[data-v=dash] header label{color:#9db4bf}
+body[data-v=dash] #dp{--tx:#eaf4f7;--mu:#9db4bf;--in:#46e0a0;--out:#ff7088;--gd:#ffc857;--pn:rgba(255,255,255,.045);--bd:rgba(160,220,230,.16);background:transparent!important;color:var(--tx)}
+body[data-v=dash] #dp select,body[data-v=dash] #dp input[type=date]{background:#0c1d29;color:#eaf4f7;border:1px solid rgba(160,220,230,.3)!important;color-scheme:dark}
+body[data-v=dash] #dp option{color:#111}
+body[data-v=dash] #dp .btn{background:rgba(255,255,255,.08);color:#eaf4f7;border:1px solid rgba(160,220,230,.18)}
+body[data-v=dash] #dp .btn.pri{background:linear-gradient(135deg,#ffd36b,#f0952c)!important;color:#1a0d02;border:0;box-shadow:0 8px 22px rgba(240,149,44,.35)}
+body[data-v=dash] #dp .live{color:#9db4bf}
+/* banner */
+#dp .dh{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;border-radius:24px;padding:26px 30px;margin-bottom:18px;background:linear-gradient(120deg,rgba(34,199,214,.16),rgba(255,200,87,.10) 55%,rgba(255,112,136,.10)),#08151f;border:1px solid rgba(255,200,120,.3);box-shadow:0 26px 60px -30px #000,inset 0 1px 0 rgba(255,255,255,.08)}
+#dp .dh::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,transparent,#ffc857,#22c7d6,#ff8a3d,transparent)}
+#dp .dh::after{content:"";position:absolute;inset:0;z-index:-1;background:repeating-conic-gradient(from 0deg at 85% 50%,rgba(255,200,120,.07) 0 4deg,transparent 4deg 14deg);-webkit-mask:radial-gradient(circle at 85% 50%,#000,transparent 65%);mask:radial-gradient(circle at 85% 50%,#000,transparent 65%)}
+#dp .dhl small{display:block;color:#7fe3ec;font:700 12px Poppins,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+#dp .dhl h2{margin:6px 0 4px;font:700 clamp(22px,3vw,32px)/1.15 Poppins,system-ui,sans-serif;color:#fff}
+#dp .dhl h2 b{background:linear-gradient(180deg,#fff3c9,#ffc857 50%,#f0952c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#dp .dhl p{margin:0;color:#9db4bf;font-size:14px}
+#dp .dhc{text-align:center;padding:12px 24px;border-radius:18px;background:rgba(0,0,0,.35);border:1px solid rgba(255,200,120,.3);box-shadow:inset 0 0 30px rgba(255,200,87,.08)}
+#dp .dhc small{display:block;color:#9db4bf;font:700 11px Poppins,system-ui,sans-serif;letter-spacing:.22em}
+#dp .dhc b{display:block;margin:4px 0 2px;font:800 clamp(30px,4.4vw,46px)/1.1 "Courier New",ui-monospace,monospace;letter-spacing:.04em;color:#ffc857;text-shadow:0 0 18px rgba(255,170,60,.6)}
+#dp .dhc span{color:#cfe3ea;font-size:13px}
+#dp .dhb{display:flex;gap:10px;align-items:center}
+#dp .dhb i{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 8%,var(--c) 38%,#000 140%);box-shadow:0 0 20px var(--c),inset -5px -7px 12px rgba(0,0,0,.45);animation:dhBob 4s ease-in-out calc(var(--i)*.35s) infinite}
+#dp .dhb i b{width:54%;height:54%;border-radius:50%;background:#fff;color:#0a1a24;display:grid;place-items:center;font:800 14px Poppins,sans-serif}
+@keyframes dhBob{50%{transform:translateY(-8px)}}
+/* KPI cards */
+body[data-v=dash] #dp .mp{background:linear-gradient(160deg,color-mix(in srgb,var(--c) 16%,transparent),rgba(7,18,27,.93) 62%);border:1px solid color-mix(in srgb,var(--c) 38%,transparent);box-shadow:0 24px 50px -30px var(--c);border-radius:22px}
+body[data-v=dash] #dp .mp::before{width:4px;box-shadow:0 0 18px var(--c)}
+body[data-v=dash] #dp .mp.in{--c:#46e0a0}body[data-v=dash] #dp .mp.out{--c:#ff7088}body[data-v=dash] #dp .mp.net{--c:#ffc857}
+#dp .mp .ico{position:absolute;right:16px;top:16px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 30%,transparent)}
+#dp .mp .ico svg{width:22px;height:22px}
+#dp .dl{right:66px}
+body[data-v=dash] #dp .mp h3{color:#fff}
+body[data-v=dash] #dp .mp .v{background:linear-gradient(180deg,#fff 0%,var(--c) 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 0 14px color-mix(in srgb,var(--c) 45%,transparent))}
+body[data-v=dash] #dp .rt,body[data-v=dash] #dp .mb2 .tr{background:rgba(255,255,255,.1)}
+body[data-v=dash] #dp .rt i{box-shadow:0 0 12px var(--c)}
+/* stat tiles */
+body[data-v=dash] #dp .stt,body[data-v=dash] #dp .bx{background:rgba(255,255,255,.045);border:1px solid rgba(160,220,230,.16);box-shadow:none;border-radius:18px}
+body[data-v=dash] #dp .stt b{color:#fff}
+#dp .stt small::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;background:#7dd3fc;box-shadow:0 0 10px #7dd3fc}
+#dp .stt.o small::before{background:#ffc857;box-shadow:0 0 10px #ffc857}#dp .stt.w small::before{background:#46e0a0;box-shadow:0 0 10px #46e0a0}#dp .stt.l small::before{background:#ff7088;box-shadow:0 0 10px #ff7088}
+body[data-v=dash] #dp .stt.w b{color:#46e0a0}body[data-v=dash] #dp .stt.l b{color:#ff7088}body[data-v=dash] #dp .stt.o b{color:#ffc857}
+/* sections */
+body[data-v=dash] #dp .sec h2,body[data-v=dash] #dp .wh{color:#fff}
+#dp .sec>header h2::before{content:"";display:inline-block;width:5px;height:20px;border-radius:3px;margin-right:10px;vertical-align:-3px;background:linear-gradient(#ffd36b,#f0952c)}
+body[data-v=dash] #dp .mt button{background:rgba(255,255,255,.06);color:#d6e6ec;border-color:rgba(160,220,230,.25)}
+body[data-v=dash] #dp .mt button.on{background:linear-gradient(135deg,#ffd36b,#f0952c);color:#1a0d02;border-color:transparent;box-shadow:0 6px 18px rgba(240,149,44,.4)}
+body[data-v=dash] #dp .sp2 div{color:#9db4bf}body[data-v=dash] #dp .sp2 .c{color:#fff}
+/* result cards */
+body[data-v=dash] #dp .hero{background:radial-gradient(700px 360px at 8% -10%,hsl(var(--h) 85% 45%/.42),transparent 65%),radial-gradient(600px 400px at 100% 100%,rgba(255,200,87,.16),transparent 60%),#07131c!important;border:1px solid hsl(var(--h) 80% 62%/.45);box-shadow:0 30px 70px -34px hsl(var(--h) 90% 50%/.7),inset 0 1px 0 rgba(255,255,255,.08);border-radius:24px}
+body[data-v=dash] #dp .hero::before{background:linear-gradient(90deg,#ff5d6c,#ffb347,#ffe45e,#5be37d,#4cc9f0,#7b6cff,#e56bff)}
+body[data-v=dash] #dp .hero::after,body[data-v=dash] #dp .hero .hl{display:block}
+body[data-v=dash] #dp .hero .top,body[data-v=dash] #dp .nw,body[data-v=dash] #dp .hero.idle p,body[data-v=dash] #dp .hst small,body[data-v=dash] #dp .mny small{color:#b8cdd6}
+body[data-v=dash] #dp .hero .now{color:#fff}
+body[data-v=dash] #dp .clk{background:linear-gradient(180deg,#fff 30%,hsl(var(--h) 95% 74%));-webkit-background-clip:text;background-clip:text}
+body[data-v=dash] #dp .clk small{-webkit-text-fill-color:hsl(var(--h) 95% 78%)}
+body[data-v=dash] #dp .hst div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+body[data-v=dash] #dp .hero .mny{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12)}body[data-v=dash] #dp .mny div+div{border-left-color:rgba(255,255,255,.12)}
+body[data-v=dash] #dp .mny .i b{color:#46e0a0}body[data-v=dash] #dp .mny .o b{color:#ff7088}body[data-v=dash] #dp .mny .n b{color:#ffc857}
+body[data-v=dash] #dp .wk{background:hsl(var(--h) 80% 50%/.15);border-color:hsl(var(--h) 80% 65%/.45)}
+body[data-v=dash] #dp .wk i,body[data-v=dash] #dp .rn i,body[data-v=dash] #dp .wn i{background:hsl(var(--h) 85% 52%);color:#fff}
+body[data-v=dash] #dp .wk b{color:#fff}
+body[data-v=dash] #dp .hx{background:linear-gradient(160deg,hsl(var(--h) 60% 30%/.42),rgba(6,17,26,.95) 66%);border:1px solid hsl(var(--h) 70% 60%/.3);box-shadow:none;border-radius:20px}
+body[data-v=dash] #dp .hx.d{box-shadow:0 18px 40px -22px hsl(var(--h) 90% 55%/.8);border-color:hsl(var(--h) 80% 65%/.6)}
+body[data-v=dash] #dp .hx .ss{background:rgba(255,255,255,.08);color:#b8cdd6}body[data-v=dash] #dp .hx.d .ss{background:hsl(var(--h) 80% 46%);color:#fff}
+body[data-v=dash] #dp .hx .tp b,body[data-v=dash] #dp .mn b{color:#fff}
+body[data-v=dash] #dp .rn,body[data-v=dash] #dp .wn{background:linear-gradient(180deg,#fff,#e4eef2);border-color:transparent;color:#0a1a24;box-shadow:0 5px 14px rgba(0,0,0,.4),inset 0 -3px 5px rgba(0,0,0,.12)}
+body[data-v=dash] #dp .cn div{background:rgba(255,255,255,.06)}body[data-v=dash] #dp .ww{border-top-color:rgba(255,255,255,.14)}
+body[data-v=dash] #dp .bk,body[data-v=dash] #dp .fr{border-bottom-color:rgba(255,255,255,.1)}
+body[data-v=dash] #dp .bx>b{color:#fff}
+body[data-v=dash] #dp .bk .neg{color:#ff7088}
+/* activity log */
+#dp .alog{border-radius:22px;padding:6px 20px;background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(160,220,230,.16);margin-top:12px}
+#dp .al{display:flex;gap:13px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}#dp .al:last-child{border:0}
+#dp .al .av{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:800 16px Poppins,sans-serif;color:#06121b;background:linear-gradient(145deg,hsl(var(--h) 90% 70%),hsl(calc(var(--h) + 40) 85% 55%));box-shadow:0 0 14px hsl(var(--h) 90% 60%/.45)}
+#dp .al .tx{min-width:0;flex:1}#dp .al .tx b{display:block;color:#fff;font-size:14.5px}#dp .al .tx small{display:block;color:#b8cdd6;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#dp .al .tg{flex:none;font:700 11px Poppins,sans-serif;letter-spacing:.04em;padding:4px 11px;border-radius:99px;background:rgba(255,255,255,.1);color:#cfe3ea}
+#dp .al .tg.g{background:rgba(70,224,160,.16);color:#46e0a0}#dp .al .tg.r{background:rgba(255,112,136,.16);color:#ff8fa1}#dp .al .tg.t{background:rgba(34,199,214,.16);color:#6eeaf2}#dp .al .tg.y{background:rgba(255,200,87,.16);color:#ffc857}
+#dp .al time{flex:none;min-width:74px;text-align:right;color:#8ea7b2;font-size:12px}
+@media(max-width:900px){#dp .dhb{display:none}#dp .dh{padding:20px}#dp .dhc{width:100%}}
+@media(max-width:560px){#dp .al .tg{display:none}#dp .al time{min-width:0}}
+@media(prefers-reduced-motion:reduce){#dp .dhb i{animation:none!important}}
+body[data-v=dash] header #who{color:#1f2937}
+/* v7 fixes: hero clock + result rows + number balls */
+body[data-v=dash] #dp .clk{-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 6px 26px hsl(var(--h) 95% 60%/.55))}
+body[data-v=dash] #dp .clk small{-webkit-text-fill-color:hsl(var(--h) 95% 80%)}
+body[data-v=dash] #dp .bl{background:linear-gradient(100deg,hsl(var(--h) 70% 40%/.30),rgba(5,14,22,.55) 70%);border:1px solid hsl(var(--h) 80% 62%/.38);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+body[data-v=dash] #dp .bl>i{background:radial-gradient(circle at 32% 26%,#fff 0 7%,hsl(var(--h) 90% 58%) 38%,hsl(var(--h) 80% 26%) 130%);color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.45);border-radius:50%;box-shadow:0 0 22px hsl(var(--h) 95% 55%/.7),inset -5px -7px 12px rgba(0,0,0,.4)}
+body[data-v=dash] #dp .ba{background:linear-gradient(180deg,#ffffff,#e6eef2);color:#0a1a24;border:3px solid hsl(var(--h) 85% 60%);box-shadow:0 0 22px hsl(var(--h) 95% 55%/.55),0 10px 22px -10px #000,inset 0 -6px 10px rgba(0,0,0,.1)}
+body[data-v=dash] #dp .ba small{color:hsl(var(--h) 70% 30%)}
+body[data-v=dash] #dp .sp2 div{background:rgba(255,255,255,.07);color:#c9dbe2;border:1px solid rgba(160,220,230,.22)}
+body[data-v=dash] #dp .sp2 .d{background:hsl(var(--h) 70% 40%/.45);color:#fff;border-color:hsl(var(--h) 85% 65%/.6)}
+body[data-v=dash] #dp .sp2 .c{background:linear-gradient(135deg,hsl(var(--h) 85% 52%),hsl(var(--h) 80% 38%));color:#fff;border-color:transparent;box-shadow:0 6px 18px hsl(var(--h) 90% 50%/.55)}
+body[data-v=dash] #dp .sp2 .w{opacity:.6}
+
 </style>
 </head><body>
 <nav id="sb"><h1><span id="lgo"></span><span><span id="bn">Lucky 89</span><small>Lottery Management</small></span></h1></nav>
@@ -782,20 +879,42 @@ $('#co').onchange=e=>{S.co=e.target.value;sv();B.items=[];go()};
 
 S.th='light';document.documentElement.dataset.theme='light';
 function go(){brand();if(!me().n){S.me=null;return showLogin()}if(!ok(view))view='bet';document.querySelectorAll('.nv').forEach(b=>{b.classList.toggle('on',b.dataset.v===view);b.title=b.textContent;if(!b.firstChild.textContent)b.firstChild.textContent=''});
- $('#ttl').textContent=NAV.find(n=>n[0]===view)[1]+' · '+S.co;$('#tic').innerHTML=IC[view];({dash,bet,rep,res,rec,usr})[view]()}
+ $('#ttl').textContent=NAV.find(n=>n[0]===view)[1]+' · '+S.co;$('#tic').innerHTML=IC[view];document.body.dataset.v=view;({dash,bet,rep,res,rec,usr})[view]()}
 
 /* ---------- dashboard ---------- */
+
+/* ---------- DASHBOARD v7 : banner, icons, activity log ---------- */
+const IK={in:'<i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10l3-3 3 3"/></svg></i>',
+ out:'<i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 17V7M9 14l3 3 3-3"/></svg></i>',
+ net:'<i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></i>'};
+const LOGSEC='<div class="sec"><header><div><h2>Activity log</h2><p>Who did what · latest actions, updates live</p></div></header><div class="alog" id="alg"></div></div>';
+function DHB(){const B=[['08','#e63950'],['09','#ffc857'],['18','#22c7d6'],['28','#8b5cf6'],['68','#ff8a3d'],['89','#4ade80']];
+ return '<div class="dh"><div class="dhl"><small id="dh_d"></small><h2>Welcome back, <b id="dh_u"></b></h2><p>Lucky 89 · live lottery control room</p></div>'
+ +'<div class="dhc"><small>NEXT DRAW COUNTDOWN</small><b id="dh_c">--:--:--</b><span id="dh_n"></span></div>'
+ +'<div class="dhb" aria-hidden="true">'+B.map((x,i)=>'<i style="--c:'+x[1]+';--i:'+i+'"><b>'+x[0]+'</b></i>').join('')+'</div></div>'}
+function dhx(){const u=$('#dh_u');if(!u)return;u.textContent=S.us||'';const d=$('#dh_d');if(d)d.textContent=new Date().toLocaleDateString([],{weekday:'long',day:'numeric',month:'long',year:'numeric'});dhc()}
+function dhc(){const c=$('#dh_c');if(!c)return;const n=new Date(),T=today(),nx=TM.find(h=>!ended(h,T)),l=$('#dh_n');
+ if(!nx){c.textContent='--:--:--';if(l)l.textContent='All draws finished today · next '+TM[0]+' tomorrow';return}
+ const p=tmin(nx),tg=new Date(n.getFullYear(),n.getMonth(),n.getDate(),Math.floor(p/60),p%60,0),df=Math.max(0,Math.round((tg-n)/1000)),z=x=>String(x).padStart(2,'0');
+ c.textContent=z(Math.floor(df/3600))+':'+z(Math.floor(df%3600/60))+':'+z(df%60);if(l)l.textContent=nx+(S.cfg.cut?' · betting closes '+S.cfg.cut+' min before':'')}
+if(!window.DHT)window.DHT=setInterval(dhc,1000);
+function alog(){const l=$('#alg');if(!l)return;const L=(S.log||[]).slice(0,10),mn=Math.floor(Date.now()/60000),sig=mn+'|'+L.map(x=>x.ts+x.m).join('|');if(l.dataset.sig===sig)return;l.dataset.sig=sig;
+ const kd=m=>/cancel|cleared|delete/i.test(m)?['r','Cancelled']:/paid|received/i.test(m)?['g','Payment']:/signed in|signed out/i.test(m)?['t','Access']:/saved|ticket|result|bet/i.test(m)?['y','Ticket']:['n','Action'],
+ ag=ts=>{const d=Math.max(0,Math.round((Date.now()-ts)/1000));return d<60?'just now':d<3600?Math.floor(d/60)+' min ago':d<86400?Math.floor(d/3600)+' h ago':new Date(ts).toLocaleDateString([],{day:'numeric',month:'short'})},
+ hu=n=>{let h=0;String(n).split('').forEach(c=>h=(h*31+c.charCodeAt(0))%360);return h};
+ l.innerHTML=L.length?L.map(x=>{const k=kd(String(x.m));return '<div class="al"><span class="av" style="--h:'+hu(x.us)+'">'+esc(String(x.us||'?').charAt(0).toUpperCase())+'</span><div class="tx"><b>'+esc(x.us)+'</b><small>'+esc(x.m)+'</small></div><span class="tg '+k[0]+'">'+k[1]+'</span><time>'+ag(x.ts)+'</time></div>'}).join(''):'<div class="emp">No activity yet. Actions will show here.</div>'}
+
 function dash(){
  if(S.lk&&S.lk.t!==SEENLK){HM=S.lk.mk;HD=S.lk.dt;HT=null;SEENLK=S.lk.t}
- $('#v').innerHTML=`<div id="dp"><div class="bar0"><div><select id="rg" aria-label="Date range">${RNG.map(r=>`<option value="${r[0]}"${r[0]===F.rg?' selected':''}>${r[1]}</option>`).join('')}</select>${ok('bet')?'<button class="btn pri" data-go="bet">+ New bet</button>':''}${ok('rep')?'<button class="btn" data-go="rep">Reports</button>':''}</div><span class="live"><i></i>Live · <span id="lv"></span></span></div>
- <div class="mps"><div class="mp in" id="p_in"><h3>Money in<small>ប្រាក់កក់បានពីភ្ញៀវសរុប</small></h3><span class="v" id="v_in">៛0</span><div class="sub" id="s_in"></div><div class="rt"><i id="r_in"></i></div></div>
- <div class="mp out" id="p_out"><h3>Money out<small>ប្រាក់សងភ្ញៀវសរុប</small></h3><span class="v" id="v_out">៛0</span><div class="sub" id="s_out"></div><div class="rt"><i id="r_out"></i></div></div>
- <div class="mp net" id="p_net"><h3>Net profit<small>ទឹកប្រាក់សរុប</small></h3><span class="v" id="v_net">៛0</span><div class="sub">Money in − money out</div><div class="rt"><i id="r_net"></i></div></div></div>
+ $('#v').innerHTML=`<div id="dp">${DHB()}<div class="bar0"><div><select id="rg" aria-label="Date range">${RNG.map(r=>`<option value="${r[0]}"${r[0]===F.rg?' selected':''}>${r[1]}</option>`).join('')}</select>${ok('bet')?'<button class="btn pri" data-go="bet">+ New bet</button>':''}${ok('rep')?'<button class="btn" data-go="rep">Reports</button>':''}</div><span class="live"><i></i>Live · <span id="lv"></span></span></div>
+ <div class="mps"><div class="mp in" id="p_in">${IK.in}<h3>Money in<small>ប្រាក់កក់បានពីភ្ញៀវសរុប</small></h3><span class="v" id="v_in">៛0</span><div class="sub" id="s_in"></div><div class="rt"><i id="r_in"></i></div></div>
+ <div class="mp out" id="p_out">${IK.out}<h3>Money out<small>ប្រាក់សងភ្ញៀវសរុប</small></h3><span class="v" id="v_out">៛0</span><div class="sub" id="s_out"></div><div class="rt"><i id="r_out"></i></div></div>
+ <div class="mp net" id="p_net">${IK.net}<h3>Net profit<small>ទឹកប្រាក់សរុប</small></h3><span class="v" id="v_net">៛0</span><div class="sub">Money in − money out</div><div class="rt"><i id="r_net"></i></div></div></div>
  <div class="sts"><div class="stt"><small>Bettors · អ្នកភ្នាល់</small><b id="n_b">0</b></div><div class="stt o"><small>Waiting · រង់ចាំបើក</small><b id="n_o">0</b></div><div class="stt w"><small>Win · ឈ្នះ</small><b id="n_w">0</b></div><div class="stt l"><small>Lost · ចាញ់</small><b id="n_l">0</b></div><div class="stt"><small>Cancelled · បិទបញ្ជី</small><b id="n_c">0</b></div></div>
  <div class="sec"><header><div><h2>Hourly results</h2><p id="hs"></p></div><input type="date" id="hd" value="${HD}" aria-label="Result date"></header>
  <div class="mt" id="mt">${DM.map(m=>`<button data-m="${m}" class="${m===HM?'on':''}">${m}</button>`).join('')}</div>
  <div class="sp2" id="sp2">${TM.map((h,i)=>`<div style="--h:${HUE(i)}" data-i="${i}" title="${h}"><span>${h.replace(/^0/,'').replace(' AM',' AM').replace(' PM',' PM')}</span></div>`).join('')}</div><div class="hg2" id="hg2"></div></div>
- <div class="g2b"><div class="bx"><b>Bank balances</b><div id="bks" style="margin-top:6px"></div></div><div class="bx"><b>Sales by market</b>${DM.map((m,i)=>`<div class="mb2"><div><span>${m}</span><b id="ms${i}">៛0</b></div><div class="tr"><i id="mb${i}" style="--h:${HUE(i*4)}"></i></div></div>`).join('')}</div><div class="bx"><b>Money flow</b><div id="fd" style="margin-top:6px"></div></div></div></div>`;
+ <div class="g2b"><div class="bx"><b>Bank balances</b><div id="bks" style="margin-top:6px"></div></div><div class="bx"><b>Sales by market</b>${DM.map((m,i)=>`<div class="mb2"><div><span>${m}</span><b id="ms${i}">៛0</b></div><div class="tr"><i id="mb${i}" style="--h:${HUE(i*4)}"></i></div></div>`).join('')}</div><div class="bx"><b>Money flow</b><div id="fd" style="margin-top:6px"></div></div></div>${LOGSEC}</div>`;
  $('#rg').onchange=e=>{F.rg=e.target.value;live()};
  $('#hd').onchange=e=>{HD=e.target.value||today();HT=null;$('#hg2').innerHTML='';live()};
  $('#sp2').onclick=e=>{const d=e.target.closest('[data-i]');if(!d)return;const h=TM[+d.dataset.i];if(!S.res[rk(HM,HD,h)])return toast('No result for '+h+' yet');HT=h;$('#hg2').innerHTML='';live()};
@@ -836,7 +955,7 @@ function live(){if(!$('#dp'))return;const t=items().filter(x=>inR(x.dt,F.rg)),sa
  const N=String;tw('n_b','b',t.length,0,v=>N(Math.round(v)));tw('n_o','o',op.length,0,v=>N(Math.round(v)));tw('n_w','w',wi,0,v=>N(Math.round(v)));tw('n_l','l',lo,0,v=>N(Math.round(v)));tw('n_c','c',ca,0,v=>N(Math.round(v)));
  const mk=DM.map(m=>t.filter(x=>x.mk===m).reduce((a,x)=>a+x.amt,0)),mx=Math.max(1,...mk);mk.forEach((v,i)=>{tw('ms'+i,'m'+i,v);const b=$('#mb'+i);if(b)b.style.width=Math.max(v?2:0,v/mx*100)+'%'});
  const bs=BANKS.map(b=>[b,bal(b)]);$('#bks').innerHTML=bs.map(b=>'<div class="bk"><span>'+b[0]+'</span><span class="'+(b[1]<0?'neg':'')+'">'+fm(b[1])+'</span></div>').join('')+'<div class="bk"><span>Total</span><span>'+fm(bs.reduce((a,b)=>a+b[1],0))+'</span></div>';
- hours();feed();$('#lv').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
+ hours();feed();dhx();alog();$('#lv').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
 
 
 /* ---------- bet entry ---------- */
