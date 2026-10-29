@@ -8,5 +8,12 @@
 <nav id="sb"><h1><span id="lgo"></span><span><span id="bn">Lucky 89</span><small>Lottery Management</small></span></h1></nav>
 <main><header><div class="th"><span id="tic"></span><h2 id="ttl"></h2></div><button class="btn sm" id="mn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="hr"><div id="cow"><small>Current Company</small><select id="co" aria-label="Current Company"></select></div><span id="cld" data-s="off" title="Cloud storage">☁ …</span><span id="who" style="font-weight:600"></span><button class="btn sm" id="pw">Password</button><button class="btn sm" id="bkup" title="Download a backup file of all data">Backup</button><button class="btn sm" id="rstr" title="Restore data from a backup file">Restore</button><input type="file" id="rstf" accept=".json,application/json" style="display:none"><button class="btn dng sm" id="lo">Logout</button></div></header><div id="v"></div></main>
 <div id="toast"></div>
+<script>
+/* ===== CLOUD SETTINGS — fill these two lines once (see setup steps), then every PC/phone shares the same data ===== */
+window.L89_CLOUD={
+ url:'',   // e.g. 'https://lucky89-default-rtdb.asia-southeast1.firebasedatabase.app'
+ path:''   // your private secret folder name, e.g. 'l89_k7Qp29xZ' (letters/numbers/_ only; pick something long and random)
+};
+</script>
 <script src="script.js"></script>
 </body></html>
