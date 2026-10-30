@@ -2,8 +2,11 @@
   "name": "lucky-89",
   "main": "src/index.js",
   "compatibility_date": "2025-01-01",
-  "assets": { "directory": "./", "binding": "ASSETS" },
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS"
+  },
   "kv_namespaces": [
-    { "binding": "DATA", "id": "PASTE_YOUR_KV_ID_HERE" }
+    { "binding": "DATA" }
   ]
 }
